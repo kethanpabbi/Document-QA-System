@@ -1,7 +1,7 @@
 import os
 from typing import List, Tuple
 from langchain_community.document_loaders import PyPDFLoader
-from langchain.text_splitter import RecursiveCharacterTextSplitter
+from langchain_text_splitters import RecursiveCharacterTextSplitter
 from langchain_community.embeddings import HuggingFaceEmbeddings
 from langchain_community.vectorstores import Chroma
 import anthropic
@@ -116,7 +116,7 @@ Be concise but complete."""
 Question: {query}"""
 
     response = client.messages.create(
-        model="claude-opus-4-6",
+        model="claude-haiku-4-5-20251001",
         max_tokens=1024,
         system=system_prompt,
         messages=[{"role": "user", "content": user_message}],
